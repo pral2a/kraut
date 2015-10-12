@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
       cursorColor   : '#0000FF',
       height        :  35,
       seekAndPlay   : true,
+      hideScrollbar : true
   };
 
 
@@ -74,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
       cursorColor   : '#0000FF',
       height        :  35,
       seekAndPlay   : true,
+      hideScrollbar : true
   };
 
 
