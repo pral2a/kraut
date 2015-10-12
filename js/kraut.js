@@ -98,6 +98,21 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
+  var ready = false;
+
+  wavesurfer2.on('ready', function () {
+    ready2 = true;
+    if (ready) document.querySelector('#wait').remove();    
+  });
+
+  var ready2 = false;
+
+  wavesurfer.on('ready', function () {
+    ready = true;
+    if (ready2) document.querySelector('#wait').remove();
+  });
+
+
 timeline.on('rangechange', function (properties) { //rangechanged
   wavesurfer.empty();
   wavesurfer.drawBuffer();
