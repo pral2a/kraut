@@ -10214,6 +10214,8 @@ return /******/ (function(modules) { // webpackBootstrap
    * @param {vis.DataSet | Array | null} items
    */
   Timeline.prototype.setItems = function (items) {
+      debugger;
+
     var initialLoad = this.itemsData == null;
 
     // convert to type DataSet when needed

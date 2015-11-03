@@ -3,128 +3,20 @@ document.addEventListener('DOMContentLoaded', function () {
   var container = document.getElementById('visualization');
 
   // Create a DataSet (allows two way data-binding)
-  var a = '<img src="http://www.progarchives.com/progressive_rock_discography_covers/675/cover_43432117102008.jpg" style="width: 48px; height: 48px;">';
-
-
-  var items = new vis.DataSet([
-    {id: 1, content: a, start: '1976-04-18'},
-    {id: 2, content: '<div style="height: 35px;" id="waveform"></div>', start: '1976-04-16', end: '1977-04-19'},
-    {id: 3, content: '<div style="height: 35px;" id="waveform2"></div>', start: '1975-04-17', end: '1979-04-19'},
-    {id: 4, content: 'War ends', start: '1945-04-18'},
-    {id: 5, content: 'Wall falls', start: '1989-04-18'},
-
-  ]);
+  var items = new vis.DataSet([{id:"2", start:"01/01/1973", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/2NDs4nIBvp7vxj1ImiCXbc'><strong>Für immer</strong><i> Neu!</i></a>"}, {id:"3", start:"01/01/1975", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/3M7sS4TUFuUfXJ0AWJGlNB'><strong>after eight</strong><i> Neu!</i></a>"}, {id:"4", start:"01/08/1969", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/6uGE4CRLGBmE3LQI2jckjS'><strong>father cannot yell</strong><i> Can</i></a>"}, {id:"5", start:"01/02/1976", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/16FzWnXRjut5edpGCBSyuI'><strong>Flow Motion</strong><i> Can</i></a>"}, {id:"6", start:"01/02/1971", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/02mJKTWea0I6NqDfCgdEnj'><strong>oh yeah</strong><i> Can</i></a>"}, {id:"7", start:"01/01/1972", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/6Hqu8oIGogFGXtGtEWMsHb'><strong>sing swan song</strong><i> Can</i></a>"}, {id:"8", start:"01/01/1989", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/1L1nfGTMix84q9JbrXlTfk'><strong>like a new child</strong><i> Can</i></a>"}, {id:"9", start:"01/01/1971", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/7h9hsEOJbNH2Y46ZR5NFfQ'><strong>Krautrock</strong><i> Faust</i></a>"}, {id:"10", start:"01/01/1973", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/4WJEsaMmXfXnuVTArWEaRT'><strong>the sad skinhead</strong><i> Faust</i></a>"}, {id:"11", start:"01/01/1975", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/5TIUDzYLen3Zm3WvsHEEZ4'><strong>we were set up</strong><i> Tangerine Dream</i></a>"}, {id:"12", start:"01/02/1985", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/49y78l709VxMkIcq7jUJKN'><strong>love on a real train</strong><i> Tangerine Dream</i></a>"}, {id:"13", start:"01/01/1971", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/15nbXlKrmL4UB5q76FyLtK'><strong>Alpha Centauri</strong><i> Tangerine dream</i></a>"}, {id:"14", start:"01/11/1974", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/31uidLEHAcF8Cw1cX1VCS8'><strong>Autobahn</strong><i> Kraftwerk</i></a>"}, {id:"15", start:"01/01/1981", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/1Q8n7UU4pULe4Mf1m3DxCm'><strong>Computer love</strong><i> Kraftwerk</i></a>"}, {id:"16", start:"01/01/1978", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/1FL9DHDSED6lxNMDJUJQvB'><strong>The model</strong><i> Kraftwerk</i></a>"}, {id:"17", start:"01/01/1977", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/3UjH6apk0ogZeIqhHbjrRU'><strong>Trans europe express</strong><i> Kraftwerk</i></a>"}, {id:"18", start:"01/01/1976", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/3YNVSwFGVoa0nTaYBCSpl5'><strong>Cluster</strong><i> sowiesoso</i></a>"}, {id:"19", start:"01/01/1977", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/3bWXd7L5viYLavAEdOwsCL'><strong>Cluster</strong><i> Schöne hände</i></a>"}, {id:"20", start:"01/01/1970", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/7fOpF1rmcD4wpenamuNdp5'><strong>archangel thunderbird</strong><i> Amön Düül II</i></a>"}, {id:"21", start:"01/01/1969", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/56KvuQXS41FTQxhWbHQmSH'><strong>i want the sun to shine</strong><i> Amön Düül II</i></a>"}, {id:"22", start:"01/01/1974", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/13LvNfvw7YXrEk9EjXTMAn'><strong>da guadeloop</strong><i> Amön Düül II</i></a>"}, {id:"23", start:"01/01/1976", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/6VhBPbXZ2LW2ja8wdC4o2A'><strong>Taoma</strong><i> Guru Guru</i></a>"}, {id:"24", start:"01/01/1972", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/3y5KzwzFMcYWjYaqsAnq0f'><strong>oxymoron</strong><i> Guru Guru</i></a>"}, {id:"25", start:"01/01/1979", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/2yuEZdvKS6CFZjQChphdCn'><strong>starway</strong><i> Guru Guru</i></a>"}, {id:"26", start:"01/01/1969", content:"<a style='color: blue' target='_blank' href='https://open.spotify.com/track/3K9923sQPxD7kV9QKvdSdz'><strong>Im garten der gemeinshaft</strong><i> Popol Vuh</i></a>"},{id:"1001", start:"1948", content:"Els comunistes inicien el bloqueig de Berlín"}, {id:"1002", start:"1950", content:"Apareix la Generació Beat: Jack Kerouac – Allen Ginsberg"}, {id:"1003", start:"1950", content:"Primers “combinats” toca disc més ràdio"}, {id:"1004", start:"1951", content:"Primera emissió de TV en color"}, {id:"1005", start:"1956", content:"Primers aparells professionals de gravació de vídeo"}, {id:"1006", start:"1958", content:"Primers discos en estèreo"}, {id:"1007", start:"1959", content:"El xip o circuit integrat"}, {id:"1008", start:"1960", content:"Apareix el moviment  Hippie: Janis Joplin Jimi Hendrix Jim Morrison"}, {id:"1009", start:"1960", content:"El làser"}, {id:"1010", start:"1960", content:"Apareix el Nou cinema Alemany: Rainer Werner Fassbinder"}, {id:"1011", start:"1961", content:"Es construeix el Mur de Berlín"}, {id:"1012", start:"1962", content:"Crisi del míssils de Cuba"}, {id:"1013", start:"1963", content:"Armistici nuclear EAU URSS"}, {id:"1014", start:"1963", content:"Assassinat de John Fitzgerald Kennedy"}, {id:"1015", start:"1965", content:"La Revolució Cultural Xina"}, {id:"1016", start:"1965", content:"Primera connexió entre dos ordinadors: internet"}, {id:"1017", start:"1966", content:"Primavera de Praga"}, {id:"1018", start:"1967", content:"La Guerra dels Sis Dies"}, {id:"1019", start:"1968", content:"Assassinat de Martin Luther King "}, {id:"1020", start:"1969", content:"L’home arriba a la Lluna"}, {id:"1021", start:"1970", content:"Primers aparells de vídeo domèstic"}, {id:"1022", start:"1971", content:"(El canceller Willy Brandt) estableix relacions diplomàtiques entre les dues Alemanyes"}, {id:"1023", start:"1971", content:"Primer microprocessador"}, {id:"1024", start:"1972", content:"Atemptat terrorista als Jocs Olímpics de Munic"}, {id:"1025", start:"1972", content:"L’escriptor Alemany Heinrich Teodor Böll, Premi Nobel de Literatura"}, {id:"1026", start:"1975", content:"Acaba la guerra del Vietnam"}, {id:"1027", start:"1976", content:"Primers magnetoscopis o cassettes"}, {id:"1028", start:"1979", content:"La URSS envaeix Afganistan"}, {id:"1029", start:"1979", content:"L’Estat de l’Iran es transforma en República Islàmica"}, {id:"1030", start:"1980", content:"Aparició del primer sindicat no comunista a Polònia"}, {id:"1031", start:"1980", content:"Guerra entre l’Iran i l’Irak"}, {id:"1032", start:"1980", content:"Es presenta el disc compacte CD"}, {id:"1033", start:"1981", content:"Primer ordinador personal"}, {id:"1034", start:"1985", content:"Comença la desaparició de l’URSS: la Perestroika"}, {id:"1035", start:"1986", content:"L’accident nuclear de Txernòbil (Ucraïna)"}, {id:"1036", start:"1989", content:"Caiguda del mur de Berlín"}, {id:"1037", start:"1990", content:"Helmut Kohl: 1er Canceller de l’Alemanya Unida"}, {id:"1038", start:"1991", content:"Comença la Guerra dels Balcans"}]);
 
   // Configuration for the Timeline
   var options = {
-    zoomable: true
+    zoomable: true,
+    autoResize: true,
+    maxHeight: "450px"
   };
+
+
 
   // Create a Timeline
   var timeline = new vis.Timeline(container, items, options);
 
 
-  // Create an instance
-  var wavesurfer = Object.create(WaveSurfer); 
-
-  // Create an instance
-  var wavesurfer2 = Object.create(WaveSurfer);  
-
-
-   
-  // Init & load audio file
-  var options = {
-      container     : document.querySelector('#waveform'),
-      waveColor     : '#FF0000',
-      progressColor : '#BB0000',
-      cursorColor   : '#0000FF',
-      height        :  35,
-      seekAndPlay   : true,
-      hideScrollbar : true
-  };
-
-
-
-  // Init
-  wavesurfer.init(options);
-  // Load audio from URL
-  wavesurfer.load('media/2.mp3');
-
-  // Report errors
-  wavesurfer.on('error', function (err) {
-      console.error(err);
-  });
-
-  wavesurfer.on('play', function (err) {
-      wavesurfer2.pause();
-  });
-
-
-
-  // Do something when the clip is over
-  wavesurfer.on('finish', function () {
-      console.log('Finished playing');
-  });
-
-  
-  // Init & load audio file
-  var options2 = {
-      container     : document.querySelector('#waveform2'),
-      waveColor     : '#00FF00',
-      progressColor : '#00BB00',
-      cursorColor   : '#0000FF',
-      height        :  35,
-      seekAndPlay   : true,
-      hideScrollbar : true
-  };
-
-
-
-  // Init
-  wavesurfer2.init(options2);
-  // Load audio from URL
-  wavesurfer2.load('media/1.mp3');
-
-  // Report errors
-  wavesurfer2.on('error', function (err) {
-      console.error(err);
-  });
-
-  wavesurfer2.on('play', function (err) {
-      wavesurfer.pause();
-  });
-
-  // Do something when the clip is over
-  wavesurfer2.on('finish', function () {
-      console.log('Finished playing');
-  });
-
-
-  var ready = false;
-
-  wavesurfer2.on('ready', function () {
-    ready2 = true;
-    if (ready) document.querySelector('#wait').remove();    
-  });
-
-  var ready2 = false;
-
-  wavesurfer.on('ready', function () {
-    ready = true;
-    if (ready2) document.querySelector('#wait').remove();
-  });
-
-
-timeline.on('rangechange', function (properties) { //rangechanged
-  wavesurfer.empty();
-  wavesurfer.drawBuffer();
-  wavesurfer2.empty();
-  wavesurfer2.drawBuffer();
-});
-
-document.querySelector('#stopall').onclick = function(){
-  wavesurfer.pause();
-  wavesurfer2.pause();
-}
 
 });
